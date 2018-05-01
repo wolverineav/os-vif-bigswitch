@@ -1,17 +1,8 @@
-If you would like to contribute to the development of OpenStack, you must
-follow the steps in this page:
+If you would like to contribute please file a bugreport to Big Switch support
+and propose a patch on Github.
 
-   http://docs.openstack.org/infra/manual/developers.html
+Pull requests submitted through GitHub without a bugreport will be ignored.
 
-If you already have a good understanding of how the system works and your
-OpenStack accounts are set up, you can skip to the development workflow
-section of this documentation to learn how changes to OpenStack should be
-submitted for review via the Gerrit tool:
+Bugs should be filed on Big Switch support portal, not GitHub:
 
-   http://docs.openstack.org/infra/manual/developers.html#development-workflow
-
-Pull requests submitted through GitHub will be ignored.
-
-Bugs should be filed on Launchpad, not GitHub:
-
-   https://bugs.launchpad.net/replace with the name of the project on launchpad
+   https://www.bigswitch.com/support
