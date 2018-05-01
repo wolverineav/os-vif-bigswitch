@@ -4,16 +4,19 @@ os-vif-bigswitch
 
 Neutron OS-VIF plugin for Big Switch Networks SwitchLight VX
 
-Please fill here a long description which must be at least 3 lines wrapped on
-80 cols, so that distribution package maintainers can use it in their packages.
-Note that this is a hard requirement.
+OS-VIF is required on Openstack compute nodes to plug/unplug an interface
+to the appropriate virtual switch. This package handles it for IVS, now known
+as SwitchLight VX.
+Installation is typically done by BOSI (BigSwitch Openstack Installer).
+Versioning follows upstream Openstack major release numbers. Minor version can
+vary based on BCF (Big Cloud Fabric) release in use.
+For more information about support matrix with BCF (Big Cloud Fabric) release
+versions, please contact https://www.bigswitch.com/support
 
 * Free software: Apache license
-* Documentation: https://docs.openstack.org/os-vif-bigswitch/latest
-* Source: https://git.openstack.org/cgit/bigswitch/os-vif-bigswitch
-* Bugs: https://bugs.launchpad.net/replace with the name of the project on launchpad
+* Source: https://github.com/bigswitch/os-vif-bigswitch
 
 Features
 --------
 
-* TODO
+* Supports VIFBridge vnic type for port binding.
