@@ -59,23 +59,6 @@ def device_exists(device):
     return os.path.exists('/sys/class/net/%s' % device)
 
 
-@privsep.vif_plug.entrypoint
-def create_tap_dev(dev, mac_address=None):
-    if not device_exists(dev):
-        try:
-            # First, try with 'ip'
-            processutils.execute('ip', 'tuntap', 'add', dev, 'mode', 'tap',
-                                 check_exit_code=[0, 2, 254])
-        except processutils.ProcessExecutionError:
-            # Second option: tunctl
-            processutils.execute('tunctl', '-b', '-t', dev)
-        if mac_address:
-            processutils.execute('ip', 'link', 'set', dev, 'address',
-                                 mac_address, check_exit_code=[0, 2, 254])
-        processutils.execute('ip', 'link', 'set', dev, 'up',
-                             check_exit_code=[0, 2, 254])
-
-
 def _delete_net_dev(dev):
     """Delete a network device only if it exists."""
     if device_exists(dev):

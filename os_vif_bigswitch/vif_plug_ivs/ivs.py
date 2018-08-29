@@ -67,7 +67,6 @@ class IvsPlugin(plugin.PluginBase):
 
     def _plug_ivs_ethernet(self, vif, instance):
         dev = self.get_vif_devname(vif)
-        linux_net.create_tap_dev(dev)
         linux_net.create_ivs_vif_port(dev)
 
     def _plug_ivs_hybrid(self, vif, instance):
