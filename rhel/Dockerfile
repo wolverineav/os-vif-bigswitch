@@ -1,3 +1,4 @@
+
 FROM registry.access.redhat.com/rhosp13/openstack-nova-compute
 MAINTAINER Big Switch Networks Inc <rhosp-bugs-internal@bigswitch.com>
 LABEL name="rhosp13/openstack-nova-compute-bigswitch" \
@@ -12,6 +13,8 @@ USER root
 RUN curl "https://bootstrap.pypa.io/get-pip.py" -o "/tmp/get-pip.py"
 RUN python /tmp/get-pip.py
 RUN pip install --upgrade "os-vif-bigswitch>=12.0.0,<12.1.0"
+# fix typo in upstream code
+RUN sed -i "0,/    with open('\/proc\/sys\/net\/ipv6\/conf\/\%s\/disable_ipv' \% interface, 'w') as f:/s//    with open('\/proc\/sys\/net\/ipv6\/conf\/\%s\/disable_ipv6' \% interface, 'w') as f:/" /usr/lib/python2.7/site-packages/nova/privsep/libvirt.py
 # copy License
 RUN mkdir /licenses
 RUN curl -L -o /licenses/LICENSE https://raw.githubusercontent.com/bigswitch/os-vif-bigswitch/master/LICENSE
