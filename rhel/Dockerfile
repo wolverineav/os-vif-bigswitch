@@ -1,4 +1,3 @@
-
 FROM registry.access.redhat.com/rhosp13/openstack-nova-compute
 MAINTAINER Big Switch Networks Inc <rhosp-bugs-internal@bigswitch.com>
 LABEL name="rhosp13/openstack-nova-compute-bigswitch" \
